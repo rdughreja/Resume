@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+        }
+        
+        .btn {
+            width: 40px;
+            height: 40px;
+        }
+        
+        #display {
+            height: 20px;
+            text-align: right;
+            border: 1px solid rgb(196, 196, 196);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #colord {
+            background-color: rgb(255, 140, 0);
+        }
+        
+        .btn {
+            border-radius: 50%;
+            box-shadow: none;
+        }
+        
+        .btn:hover {
+            background-color: rgb(213, 213, 213);
+        }
+        
+        input {
+            box-shadow: none;
+            background: rgb(202, 202, 202);
+            color: inherit;
+            border: 1px solid white;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            margin: 2px;
+        }
+        
+        #ans {
+            color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="buttons">
+            <table border="0">
+                <tr>
+                    <td colspan="7" id="ans" height="40">
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input onclick="clearAns(this.value)" style="background-color: rgb(248, 0, 0);" class="btn" type="button" value="ac" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="+/-" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="%" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="/" /></td>
+                    <td><input onclick="Sin(this.value)" class="btn" type="button" value="sin" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="&Pi;" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="&#x221A;" /></td>
+                </tr>
+
+                <tr>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="7" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="8" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="9" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="+" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="cos" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="&#x207D;" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="e" /></td>
+
+
+                </tr>
+                <tr>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="4" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="5" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="6" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="-" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="log" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="&#x207E;" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="x!" /></td>
+
+
+                </tr>
+                <tr>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="1" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="2" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="3" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="*" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="tan" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="EXP" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="x^y" /></td>
+
+
+                </tr>
+                <tr>
+                    <!-- <td><input onclick="clearAns(this.value)" style="background-color: rgb(248, 0, 0);" class="btn" type="button" value="c" /></td> -->
+                    <td colspan="2"><input onclick="addNo(this.value)" class="btn" type="button" value="0" style="width: 100px;" /></td>
+                    <td><input onclick="generateAns(this.value)" class="btn" type="button" id="colord" value="=" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" id="colord" value="." /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="ln" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="lnv" /></td>
+                    <td><input onclick="addNo(this.value)" class="btn" type="button" value="EXP" /></td>
+
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function addNo(num) {
+            ans = document.getElementById("ans")
+            ans.innerHTML += num
+        }
+
+        function clearAns() {
+            ans = document.getElementById("ans")
+            ans.innerHTML = ""
+        }
+
+        function generateAns() {
+            ans = document.getElementById("ans")
+            finalAns = eval(ans.innerHTML)
+            ans.innerHTML = finalAns;
+        }
+
+        function Sin(num) {
+            ans = document.getElementById("ans")
+            ans.innerHTML = Math.sin(ans.innerHTML);
+        }
+    </script>
+</body>
+
+</html>
